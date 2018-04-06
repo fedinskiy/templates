@@ -1,0 +1,31 @@
+<templateSet group="output">
+  <template name="nlog" value="private static org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger($class$.class);" description="New slf4j logger" toReformat="true" toShortenFQNames="true">
+    <variable name="class" expression="className()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="ldeb" value="LOGGER.debug(&quot;$EXPR_DESC$:'{}'&quot;,$EXPR$);" description="debug" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPR" expression="variableOfType(&quot;&quot;)" defaultValue="&quot;EXPR&quot;" alwaysStopAt="true" />
+    <variable name="EXPR_DESC" expression="escapeString(EXPR)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ltrace" value="LOGGER.trace(&quot;$EXPR$&quot;);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="EXPR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="lerr" value="LOGGER.error(&quot;$TEXT$ $VARNAME$ {}&quot;, $VAR$, $EXCEPTION$);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="variableOfType(&quot;&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="VARNAME" expression="escapeString(VAR)" defaultValue="" alwaysStopAt="false" />
+    <variable name="EXCEPTION" expression="variableOfType(&quot;java.lang.Throwable&quot;)" defaultValue="&quot;e&quot;" alwaysStopAt="false" />
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
