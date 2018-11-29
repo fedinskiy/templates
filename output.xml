@@ -28,4 +28,14 @@
       <option name="JAVA_STATEMENT" value="true" />
     </context>
   </template>
+  <template name="flog" value="private static final java.util.function.Consumer&lt;String&gt; FLOGGER = str -&gt; LOGGER.debug(&quot;'{}'&quot;, str);" description="functional style logger" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="fout" value="System.out::println" description="Functional style output to System.out" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
 </templateSet>
